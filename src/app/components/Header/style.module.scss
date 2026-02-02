@@ -2,15 +2,40 @@
 // @use "../../mixins" as *;
 @use "@app/mixins" as *;
 
+.header__inner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header__button {
+    background: var(--button-gradient);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid var(--button-border);
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.item__button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gray);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_social {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
 .color {
     color: red;
     @include adaptiv-value("font-size", 102, 32);
-}
-
-.text {
-    background: var(--text-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    @include adaptiv-value("font-size", 72, 16);
 }

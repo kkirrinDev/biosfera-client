@@ -9,9 +9,11 @@
 
 
 :root {
-  --background: #ffffff;
   --foreground: #232527;
-  --text-gradient: linear-gradient(to right, #3170B4, #5CCCC2);
+  --background: #ffffff;
+  --gradient: linear-gradient(to right, #3170B4, #5CCCC2);
+  --button-gradient: linear-gradient(to right, #3170B4, #5CCCC2);
+  --button-border: transparent;
 
   /* Переменные для плагина */
   --light-yellow: #F7F3D6;
@@ -37,7 +39,9 @@
 html,
 body {
   max-width: 100vw;
+  height: 100%;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -51,34 +55,43 @@ body {
 body.theme_white {
   --background: var(--white);
   --foreground: var(--black);
-  --text-gradient: var(--black);
+  --gradient: var(--black);
+  --button-gradient: var(--white);
+  --button-border: var(--black);
 }
 
 body.theme_black {
   --background: var(--black);
   --foreground: var(--white);
-  --text-gradient: var(--white);
+  --gradient: var(--white);
+  --button-gradient: var(--black);
+  --button-border: var(--white);
 }
 
 body.theme_blue {
-  --background: var(--light-blue);
+  --background: var(--light-yellow);
   --foreground: var(--dark-blue);
-  --text-gradient: var(--dark-blue);
+  --gradient: var(--dark-blue);
+  --button-gradient: var(--light-yellow);
+  --button-border: var(--dark-blue);
 }
 
 body.theme_yellow {
   --background: var(--light-yellow);
   --foreground: var(--light-green);
-  --text-gradient: var(--light-green);
+  --gradient: var(--light-green);
+  --button-gradient: var(--light-yellow);
+  --button-border: var(--light-green);
 }
 
 body.theme_green {
   --background: var(--light-green);
   --foreground: var(--green);
-  --text-gradient: var(--green);
+  --gradient: var(--green);
+  --button-gradient: var(--light-green);
+  --button-border: var(--green);
 }
 
-/* Перебивает локальные color (например color: red) в Header */
 body.theme_white *,
 body.theme_black *,
 body.theme_blue *,
@@ -87,6 +100,7 @@ body.theme_green * {
   color: var(--foreground);
 }
 
+/* Reset */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -96,4 +110,47 @@ body.theme_green * {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1480px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Utils */
+.flex {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+
+.text {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3rem;
 }
