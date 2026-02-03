@@ -9,6 +9,7 @@ export default function Popup({ active, setActive }) {
             setActive(false);
         }
     }
+ 
 
     return (
         <div
@@ -32,10 +33,10 @@ export default function Popup({ active, setActive }) {
                             <rect x="4.21094" y="3" width="21.8033" height="0.726776" rx="0.363388" transform="rotate(45 4.21094 3)" fill="#fff" />
                         </svg>
                     </button>
-
                     <Form />
                 </div>
             </div>
         </div>
     )
 }
+

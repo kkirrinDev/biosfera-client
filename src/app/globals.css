@@ -9,11 +9,14 @@
 
 
 :root {
-  --foreground: #232527;
+  --foreground: #171717;
   --background: #ffffff;
   --gradient: linear-gradient(to right, #3170B4, #5CCCC2);
   --button-gradient: linear-gradient(to right, #3170B4, #5CCCC2);
   --button-border: transparent;
+
+  /*Цвета макета*/
+  --color-gray: #858f9c;
 
   /* Переменные для плагина */
   --light-yellow: #F7F3D6;

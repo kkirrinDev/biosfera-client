@@ -71,7 +71,7 @@ export default function Form() {
             onSubmit={handleSubmit(onSubmit)}
         >
             <h2>Оставьте заявку</h2>
-            <p>Мы свяжемся с вами в ближайшее время</p>
+            <p className={styles.subtitle}>Мы свяжемся с вами в ближайшее время</p>
             <div className={styles.input_wrapper}>
                 <input
                     placeholder='Введите имя'

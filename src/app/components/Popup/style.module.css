@@ -44,17 +44,18 @@
     background: var(--white);
     color: var(--blue);
     text-align: center;
+   border-radius: 30px;
 }
 
 .popup__close {
     position: absolute;
-    top: -20px;
-    right: -20px;
+    top: -40px;
+    right: 0;
     z-index: 1000;
-    background-color: var(--violet);
+    background: var(--button-gradient);
     border-radius: 50%;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     border: none;
     display: flex;
     align-items: center;

@@ -1,7 +1,25 @@
+// @include adaptiv-value("font-size", 16, 13);
+// @use "../../mixins" as *;
+@use "@app/mixins" as *;
+
+.form {
+    h2 {
+        margin-bottom: 20px;
+        @include adaptiv-value("font-size", 40, 26);
+    }
+}
+
+.subtitle {
+    color: var(--color-gray);
+    @include adaptiv-value("font-size", 18, 14);
+    margin-bottom: 20px;
+}
+
 .policy_checkbox_wrapper {
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-top: 10px;
 }
 
 .policy_checkbox {
