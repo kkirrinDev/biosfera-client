@@ -11,7 +11,6 @@ interface FormData {
     policy: boolean;
 }
 
-
 export default function Form() {
     const {
         register,
