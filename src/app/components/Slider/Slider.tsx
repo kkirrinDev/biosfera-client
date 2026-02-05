@@ -1,8 +1,6 @@
 "use client";
-import { useState, useEffect } from "react";
+import type { ComponentType, Key } from "react";
 import styles from "./style.module.scss";
-import Image from "next/image";
-import Link from "next/link";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules'
@@ -11,8 +9,13 @@ import SwiperNavButtons from "../SwiperNavButtons/SwiperNavButtons";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-export default function Slider() {
+type SliderProps<TItem> = {
+    data: TItem[];
+    Card: ComponentType<{ data: TItem }>;
+    getKey?: (item: TItem, index: number) => Key;
+};
 
+export default function Slider<TItem>({ data, Card, getKey }: SliderProps<TItem>) {
 
     return (
         <div className={`${styles.about_wrapper}`}>
@@ -26,12 +29,14 @@ export default function Slider() {
                     1023: { slidesPerView: 3 },
                 }}
             >
+                {data.map((item, index) => (
+                    <SwiperSlide
+                        key={getKey?.(item, index) ?? (item as any)?.id ?? index}
+                    >
+                        <Card data={item} />
+                    </SwiperSlide>
+                ))}
 
-                <SwiperSlide>1</SwiperSlide>
-                <SwiperSlide>2</SwiperSlide>
-                <SwiperSlide>3</SwiperSlide>
-                <SwiperSlide>4</SwiperSlide>
-                <SwiperSlide>5</SwiperSlide>
 
                 <SwiperNavButtons
                     addClass={'buttons_bottom'}

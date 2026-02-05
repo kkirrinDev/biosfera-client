@@ -178,3 +178,7 @@ ul {
   background-clip: text;
   font-size: 3rem;
 }
+
+.swiper-slide {
+  height: auto !important;
+}
