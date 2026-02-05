@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { DoctorCard, Slider } from "@/app/components";
 
-
 const data = [
     {
         id: 1,
@@ -25,7 +24,7 @@ const data = [
     },
     {
         id: 3,
-        name: "Бурдуковская Наталья Викторовна",
+        name: "2Бурдуковская Наталья Викторовна",
         image: "/images/doctors/image-1.webp",
         label: "Стаж 25 лет",
         description: "Главный врач, Врач функциональной диагностики, Врач-терапевт",
@@ -33,7 +32,7 @@ const data = [
     },
     {
         id: 4,
-        name: "Савинов Аркадий Александрович",
+        name: "2Савинов Аркадий Александрович",
         image: "/images/doctors/image-2.webp",
         label: "Стаж 14 лет",
         description: "Врач-неврологт",

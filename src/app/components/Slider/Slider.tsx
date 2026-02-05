@@ -9,13 +9,37 @@ import SwiperNavButtons from "../SwiperNavButtons/SwiperNavButtons";
 import 'swiper/css';
 import 'swiper/css/navigation';
 
+type SliderBreakpoints = Record<
+    number,
+    {
+        slidesPerView?: number;
+        spaceBetween?: number;
+        [key: string]: any;
+    }
+>;
+
 type SliderProps<TItem> = {
     data: TItem[];
     Card: ComponentType<{ data: TItem }>;
     getKey?: (item: TItem, index: number) => Key;
+    breakpoints?: SliderBreakpoints;
+    slidesPerView?: number;
+    spaceBetween?: number;
+    loop?: boolean;
 };
 
-export default function Slider<TItem>({ data, Card, getKey }: SliderProps<TItem>) {
+const DEFAULT_BREAKPOINTS: SliderBreakpoints = {
+    320: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1023: { slidesPerView: 3 },
+};
+
+export default function Slider<TItem>({
+    data,
+    Card,
+ }: SliderProps<TItem>) {
+
+    console.log(data);
 
     return (
         <div className={`${styles.about_wrapper}`}>
@@ -23,15 +47,12 @@ export default function Slider<TItem>({ data, Card, getKey }: SliderProps<TItem>
                 spaceBetween={20}
                 loop={true}
                 modules={[Navigation]}
-                breakpoints={{
-                    320: { slidesPerView: 1 },
-                    768: { slidesPerView: 2 },
-                    1023: { slidesPerView: 3 },
-                }}
+                slidesPerView={3}
+                // breakpoints={DEFAULT_BREAKPOINTS}
             >
                 {data.map((item, index) => (
                     <SwiperSlide
-                        key={getKey?.(item, index) ?? (item as any)?.id ?? index}
+                        key={index}
                     >
                         <Card data={item} />
                     </SwiperSlide>
