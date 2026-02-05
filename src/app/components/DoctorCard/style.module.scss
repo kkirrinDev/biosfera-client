@@ -1,0 +1,55 @@
+@use "@app/mixins" as *;
+
+.doctors__card {
+    position: relative;
+    border-radius: 20px;
+    background: linear-gradient(180deg, #e6ecf3 0%, #fff 100%);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    height: 100%;
+}
+
+.doctors__card_info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.label {
+    display: inline-flex;
+    padding: 10px 15px;
+    border-radius: 67px;
+    background-color: var(--background);
+    width: fit-content;
+}
+
+.label_info {
+    font-size: 0.75rem;
+}
+
+.card_subtitle {
+    font-size: 1.125rem;
+    color: var(--text-gray);
+}
+
+.card_link {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.button {
+    background: var(--button-gradient);
+    color: white;
+    padding: 17px 20px;
+    border: 1px solid var(--button-border);
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-top: 20px;
+    text-align: center;
+}
