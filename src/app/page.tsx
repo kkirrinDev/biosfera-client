@@ -19,7 +19,7 @@ export default function Home() {
       <Map />
       <Footer />
      
-      <Image
+      {/* <Image
         src="/Item.png"
         alt="VDS"
         width={460}

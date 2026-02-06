@@ -65,7 +65,8 @@ export default function Hero() {
 
             <Popup active={popupOpened} setActive={setPopupOpened} />
 
-            {!miniPopupClosed && (
+            {/* Заебало каждый раз открываться при загрузке страницы */}
+            {/* {!miniPopupClosed && (
             <section className={styles.mini_popup}>
                 <button 
                     onClick={() => setMiniPopupClosed(true)}
@@ -90,7 +91,7 @@ export default function Hero() {
                 </div>
                 ыыыы
             </section>
-            )}
+            )} */}
        </section>
     )
 } 
