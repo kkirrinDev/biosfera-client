@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./style.module.scss";
 
 const menuLinks = [
@@ -29,6 +30,8 @@ export default function HeaderMobileMenu({
   active: boolean;
   setActive: (active: boolean) => void;
 }) {
+  const [submenuOpen, setSubmenuOpen] = useState(false);
+
   return (
     <div
       className={`${styles.mobile_menu_wrapper} ${active ? styles.active : ""}`}
@@ -63,10 +66,41 @@ export default function HeaderMobileMenu({
       <ul className={styles.nav_list}>
         {menuLinks.map((item) => (
           <li className={styles.nav_item} key={item.title}>
-            <Link href={item.url}>{item.title}</Link>
+            <div className={styles.nav_item_inner}>
+              {!item.submenu && <Link href={item.url}>{item.title}</Link>}
+              {item.submenu && (
+                <span onClick={() => setSubmenuOpen(!submenuOpen)}>
+                  {item.title}
+                </span>
+              )}
+              {item.submenu && (
+                <Image
+                  src="/icons/dropdown-icon.svg"
+                  className="dsv-image"
+                  alt="arrow"
+                  width={10}
+                  height={3}
+                />
+              )}
+            </div>
+            {item.submenu && (
+              <ul
+                className={`${styles.submenu_list} ${submenuOpen ? styles.active : ""}`}
+              >
+                <li className={styles.nav_item} key={item.title}>
+                  <Link href={item.url}>{item.title}</Link>
+                </li>
+                {item.submenu.map((subitem) => (
+                  <li className={styles.submenu_item} key={subitem.title}>
+                    <Link href={subitem.url}>{subitem.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
+
       <div className={styles.address_wrapper}>
         <Image
           src="/icons/pin-icon.svg"

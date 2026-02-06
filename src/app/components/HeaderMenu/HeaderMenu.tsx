@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.scss";
 
@@ -27,6 +28,15 @@ export default function HeaderMenu() {
         {menuLinks.map((item) => (
           <li className={styles.nav_item} key={item.title}>
             <Link href={item.url}>{item.title}</Link>
+            {item.submenu && (
+              <Image
+                src="/icons/dropdown-icon.svg"
+                className="dsv-image"
+                alt="arrow"
+                width={10}
+                height={3}
+              />
+            )}
             {item.submenu && (
               <ul className={styles.submenu_list}>
                 {item.submenu.map((subitem) => (
